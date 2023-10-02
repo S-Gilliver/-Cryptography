@@ -1,13 +1,20 @@
+import java.util.Scanner;
+
 public class Code3 {
     public static void main(String[] args) {
-        int n = 27;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ведите свой порядковый номер в списке");
+
+        int n = scanner.nextInt();
         int a = (n + 1) * (n + 2);
         int b = (n + 2) * (n + 3);
         //возводим число в степень
         int c = (int) Math.pow(n + 2, 3);
 
+        //создаем массив и передаем значения для их обработки в методе extendedEuclidean
         int[] result = extendedEuclidean(a, b);
 
+        //проверяем значение на 0
         if (c % result[0] == 0) {
             int x = result[1] * (c / result[0]);
             int y = result[2] * (c / result[0]);
