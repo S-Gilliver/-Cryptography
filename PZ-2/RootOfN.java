@@ -6,24 +6,26 @@ public class RootOfN {
         this.n = n;
     }
 
+    // Метод для проверки, является ли число простым
     public boolean isPrime() {
         if (n <= 1) {
-            return false;
+            return false; // 1 и меньшие числа не являются простыми
         }
         if (n <= 3) {
-            return true;
+            return true; // 2 и 3 являются простыми числами
         }
         if (n % 2 == 0 || n % 3 == 0) {
-            return false;
+            return false; // Если число делится на 2 или 3, то оно не простое
         }
 
+        // Проверяем деление на числа вида 6k ± 1, где k - натуральное число
         for (int i = 5; i * i <= n; i += 6) {
             if (n % i == 0 || n % (i + 2) == 0) {
-                return false;
+                return false; // Если число делится на такие числа, то оно не простое
             }
         }
 
-        return true;
+        return true; // Если не найдено делителей, то число простое
     }
 
     public static void main(String[] args) {
