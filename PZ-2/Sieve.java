@@ -28,7 +28,7 @@ public class Sieve {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите число: ");
+        System.out.print("Введите число для проверки: ");
         int numberToCheck = scanner.nextInt();
         scanner.close();
 

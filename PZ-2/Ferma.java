@@ -2,13 +2,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Ferma {
-    public static boolean isPrimeFermat(int n, int k) {
-        if (n <= 1) {
-            return false;
-        }
-
-        if (n <= 3) {
-            return true;
+    public static boolean isPrime(int n, int k) {
+        if (n <= 1 || n % 2 == 0) {
+            return n == 2;
         }
 
         // Проводим тест Ферма k раз
@@ -40,7 +36,7 @@ public class Ferma {
         System.out.print("Введите число для проверки: ");
         int numberToCheck = scanner.nextInt();
         int k = 5; // Количество итераций теста Ферма
-        if (isPrimeFermat(numberToCheck, k)) {
+        if (isPrime(numberToCheck, k)) {
             System.out.println(numberToCheck + " - простое число");
         } else {
             System.out.println(numberToCheck + " - составное число");
