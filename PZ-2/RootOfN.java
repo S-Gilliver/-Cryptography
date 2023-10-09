@@ -7,13 +7,22 @@ public class RootOfN {
     }
 
     public boolean isPrime() {
-        int sqrtN = (int) Math.sqrt(n);
+        if (n <= 1) {
+            return false;
+        }
+        if (n <= 3) {
+            return true;
+        }
+        if (n % 2 == 0 || n % 3 == 0) {
+            return false;
+        }
 
-        for (int i = 2; i <= sqrtN; i++) {
-            if (n % i == 0) {
+        for (int i = 5; i * i <= n; i += 6) {
+            if (n % i == 0 || n % (i + 2) == 0) {
                 return false;
             }
         }
+
         return true;
     }
 
@@ -21,15 +30,15 @@ public class RootOfN {
         int[] lst = {
                 ((33 - 1) * (33 - 1)) + 1,
                 (int) Math.pow(2, 1 + 1) - 1,
-                (int) Math.pow(2, 2 % 4) + 1,
+                (int) Math.pow(2, (int) (2 % 4)) + 1,
                 20230926,
                 20050212
         };
 
         for (int i : lst) {
             RootOfN algorithm = new RootOfN(i);
-            boolean flag = algorithm.isPrime();
-            if (flag) {
+            boolean isPrime = algorithm.isPrime();
+            if (isPrime) {
                 System.out.println("Число простое");
             } else {
                 System.out.println("Число составное");
