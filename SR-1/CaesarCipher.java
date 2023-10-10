@@ -44,6 +44,8 @@ public class CaesarCipher {
         } else if (oper.equals("2")) {
             String decryptedFIO = decrypt(fio, key);
             System.out.println("Расшифрованное ФИО: " + decryptedFIO);
+        } else {
+            System.out.println("Введена неправильная операция");
         }
 
         scanner.close();
