@@ -13,11 +13,11 @@ public class Calculator {
             String oper = scanner.next();
 
             if (oper.equals("1")) {
-                System.out.println("Результат: " + (BigDecimal.valueOf(num1)
-                        .add(BigDecimal.valueOf(num2))));
+                System.out.println("Результат: " + (new BigDecimal(num1)
+                        .add(new BigDecimal(num2))));
             } else if (oper.equals("2")) {
-                System.out.println("Результат: " + (BigDecimal.valueOf(num1)
-                        .subtract(BigDecimal.valueOf(num2))));
+                System.out.println("Результат: " + (new BigDecimal(num1)
+                        .subtract(new BigDecimal(num2))));
             } else if (oper.equals("3")) {
                     System.out.println("Результат: " + (new BigDecimal(num1)
                             .multiply(new BigDecimal(num2))));
