@@ -8,7 +8,10 @@ public class SimpleSubstitutionDecryption {
 
     public static void main(String[] args) {
         try {
+            // Чтение зашифрованного текста из файла
             String encryptedText = readFromFile("SR-4/encrypted_text.txt");
+
+            // Расшифровка текста и вывод результата
             String decryptedText = decrypt(encryptedText);
             System.out.println("Decrypted Text:\n" + decryptedText);
         } catch (IOException e) {
@@ -16,6 +19,7 @@ public class SimpleSubstitutionDecryption {
         }
     }
 
+    // Метод для чтения текста из файла
     private static String readFromFile(String filename) throws IOException {
         StringBuilder stringBuilder = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
@@ -27,9 +31,12 @@ public class SimpleSubstitutionDecryption {
         return stringBuilder.toString();
     }
 
+    // Метод для расшифровки текста с использованием простой подстановки
     private static String decrypt(String encryptedText) {
+        // Создание карты для расшифровки с использованием простой подстановки
         Map<Character, Character> decryptionMap = createDecryptionMap();
 
+        // Расшифровка текста
         StringBuilder decryptedText = new StringBuilder();
         for (char c : encryptedText.toCharArray()) {
             if (Character.isLetter(c)) {
@@ -42,11 +49,13 @@ public class SimpleSubstitutionDecryption {
         return decryptedText.toString();
     }
 
+    // Метод для создания карты подстановки на основе примера шифра
     private static Map<Character, Character> createDecryptionMap() {
         // Пример шифра, замените его на свой
-        String alphabet = "abcdefghijklmnopqrstuvwxyz";
-        String cipher = "bcdefghijklmnopqrstuvwxyza"; // пример шифра: сдвиг на 1 букву вправо
+        String alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+        String cipher = "ьэюяабвгдеёжзийклмнопрстуфхцчшщъы"; // пример шифра: сдвиг на 1 букву вправо
 
+        // Создание карты подстановки
         Map<Character, Character> decryptionMap = new HashMap<>();
         for (int i = 0; i < alphabet.length(); i++) {
             decryptionMap.put(cipher.charAt(i), alphabet.charAt(i));

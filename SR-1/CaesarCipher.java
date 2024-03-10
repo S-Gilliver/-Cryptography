@@ -5,6 +5,7 @@ public class CaesarCipher {
         StringBuilder encrypted = new StringBuilder();
         for (int i = 0; i < input.length(); i++) {
             char c = input.charAt(i);
+
             if (Character.isLetter(c)) {
                 // Определение базовой буквы (заглавной или строчной) для шифрования
                 char base = (Character.isLowerCase(c)) ? 'а' : 'А';
